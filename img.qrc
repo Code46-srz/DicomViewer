@@ -5,4 +5,7 @@
         <file>sidebar/pan.png</file>
         <file>sidebar/no-pan.png</file>
     </qresource>
+    <qresource prefix="/">
+        <file>assets/LOGODicom.png</file>
+    </qresource>
 </RCC>

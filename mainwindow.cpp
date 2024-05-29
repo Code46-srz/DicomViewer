@@ -33,8 +33,12 @@ MainWindow::MainWindow(QWidget *parent)
     QPushButton *zoomButton = new QPushButton( this);
     QPushButton *zoomOutButton = new QPushButton( this);
     QPushButton *panButton = new QPushButton( this);
-
+    QLabel *logo = new QLabel(this);
     //button styles
+    QPixmap logoX(":/assets/LOGODicom.png");
+     QPixmap scaledPixmap = logoX.scaled(200, 200, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+
+    logo->setPixmap(scaledPixmap);
     zoomButton->setIcon(QIcon(":/icon/sidebar/zoom-in.png"));
     zoomOutButton->setIcon(QIcon(":/icon/sidebar/zoom-out.png"));
     //if pan button clicked idsplay pan icon if clicked again display no pan icon
@@ -53,15 +57,17 @@ MainWindow::MainWindow(QWidget *parent)
 
 
     //Add widgets to the sidebar layout
+    //sidebarLayout->addWidget(logo);
     sidebarLayout->addWidget(zoomButton);
-
     sidebarLayout->addWidget(zoomOutButton);
     sidebarLayout->addWidget(panButton);
     sidebarLayout->addWidget(patientData);
 
+
     // Add the widgets to the main layout
-    layout->addWidget(canvas, 0, 0);
-    layout->addLayout(sidebarLayout, 0, 1);
+    layout->addWidget(logo, 0, 0);
+    layout->addWidget(canvas, 1, 0);
+    layout->addLayout(sidebarLayout, 1, 1);
 
 
 

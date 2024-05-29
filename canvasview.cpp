@@ -18,6 +18,8 @@ CanvasView::CanvasView(QWidget *parent) : QGraphicsView(parent), scene(new QGrap
     setTransformationAnchor(AnchorUnderMouse);
     setScene(scene);
     setBackgroundBrush(QColorConstants::Black);
+    //set a image as the defualt background for the scene
+
 }
 
 void CanvasView::zoomIn()
@@ -68,7 +70,9 @@ void CanvasView::loadImage(const QString &filePath)
 
              QPixmap pixmap = QPixmap::fromImage(qImage);
 
-             QGraphicsPixmapItem* pixmapItem = scene->addPixmap(pixmap);
+
+
+             scene->addPixmap(pixmap);//->setZValue(1);
 
             qDebug() << "Image loaded successfully.";
         } else {
